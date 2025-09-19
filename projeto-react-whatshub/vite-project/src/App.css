@@ -1,0 +1,104 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.link-generator {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.link-generator h2 {
+  color: #22c55e;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+
+.input-number {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+
+.message-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  min-height: 80px;
+  margin-bottom: 10px;
+}
+
+.btn-generate {
+  width: 100%;
+  padding: 10px;
+  background: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-generate:hover {
+  background: #16a34a;
+}
+
+
+.link-output {
+  margin-top: 15px;
+}
+
+.link-output input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+  margin-bottom: 8px;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-group button,
+.btn-group a {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn-group button {
+  background: #e5e7eb;
+}
+
+.btn-group button:hover {
+  background: #d1d5db;
+}
+
+.btn-group a {
+  background: #22c55e;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-group a:hover {
+  background: #16a34a;
+}
