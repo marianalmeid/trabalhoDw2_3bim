@@ -1,22 +1,65 @@
 
-body {
+
+.container{
   font-family: Arial, sans-serif;
   background: #f5f5f5;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-}
-.container{
-  display: flex;
-  flex-direction: row;
+  padding: 20px;
+
 }
 
-.item{
-  height: 100vh;
+.title{
+  text-align: center;
+  color: #16a34a;
+  font-size: 28px;
+  margin-bottom: 5px;
 }
+
+.subtitle{
+  text-align: center;
+  color: #000000;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.cards{
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.cards .item{
+  flex: 1;
+  border:  0.1px solid rgb(230, 229, 229);
+  border-radius: 3%;
+  box-shadow: 0px 2px 6px rgb(211, 209, 209);
+  padding: 20px;
+}
+
+.cards div h2{
+  font-size: 18px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+}
+.cards input, .cards text{
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid grey;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.add{
+  flex: 1;
+  
+}
+
 .link-generator {
-  max-width: 400px;
   margin: 40px auto;
   padding: 20px;
   border: 1px solid #ddd;
@@ -111,3 +154,5 @@ body {
 .btn-group a:hover {
   background: #16a34a;
 }
+
+

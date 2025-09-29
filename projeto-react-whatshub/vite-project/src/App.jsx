@@ -1,15 +1,23 @@
 import LinkGerador from "./components/linkGerador.jsx";
 import Agenda from "./components/agenda.jsx";
+import "./styles/App.css"
 
 function App() {
   return (
     <div className="container">
-      <div className="item">
-        <LinkGerador />
+      <h1 className="title">Whatshub</h1>
+      <p className="subtitle">O jeito amais rápido de iniciar conversas no WhatsApp. Gere links instantâneos e mantenha seus contatos organizados.</p>
+      <div className="cards">
+          <div className="item">
+            <LinkGerador />
+          </div>
+          <div className="item">
+            <Agenda />
+          </div>
+          
+         
       </div>
-      <div className="item">
-        <Agenda />
-      </div>
+     
     </div>
   );
 }

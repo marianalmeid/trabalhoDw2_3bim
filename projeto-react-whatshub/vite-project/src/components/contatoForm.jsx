@@ -20,16 +20,18 @@ export default function ContatoForm({onAdd})
 
   return (
     <form className="contactForm" onSubmit={handleSubmit}>
-      <input type="text" 
-            placeholder="Nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}/>
-      
-      <input type="text" 
-            placeholder="Numero"
-            value={numero}
-            onChange={(e) => setNumero(e.target.value)}/>
+      <div className="add">
+        <input type="text" 
+              placeholder="Nome"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}/>
+        
+        <input type="text" 
+              placeholder="Numero"
+              value={numero}
+              onChange={(e) => setNumero(e.target.value)}/>
 
+      </div>
       <button type="submit">Add</button>
     </form>
   )
