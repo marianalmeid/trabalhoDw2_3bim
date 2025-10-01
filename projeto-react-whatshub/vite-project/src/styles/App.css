@@ -1,27 +1,33 @@
-
-
-.container{
+.container {
   font-family: Arial, sans-serif;
   background: #f5f5f5;
-  padding: 20px;
-
+  padding: 40px 20px;
+  min-height: 100vh;
 }
 
-.title{
+/* Título */
+.title {
   text-align: center;
   color: #16a34a;
-  font-size: 28px;
-  margin-bottom: 5px;
+  font-size: 34px;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
-.subtitle{
+/* Subtítulo */
+.subtitle {
   text-align: center;
   color: #000000;
-  font-size: 14px;
-  margin-bottom: 30px;
+  font-size: 16px;
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
 }
 
-.cards{
+/* Cards layout */
+.cards {
   display: flex;
   gap: 20px;
   justify-content: center;
@@ -29,130 +35,147 @@
   flex-wrap: wrap;
 }
 
-.cards .item{
+.cards .item {
   flex: 1;
-  border:  0.1px solid rgb(230, 229, 229);
-  border-radius: 3%;
-  box-shadow: 0px 2px 6px rgb(211, 209, 209);
+  min-width: 320px;
+  max-width: 480px;
+  border: 1px solid rgb(230, 229, 229);
+  border-radius: 12px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
   padding: 20px;
+  background: #fff;
 }
 
-.cards div h2{
-  font-size: 18px;
+/* Títulos dos cards */
+.cards div h2 {
+  font-size: 20px;
   margin-bottom: 15px;
   display: flex;
   align-items: center;
   gap: 8px;
-
+  color: #16a34a;
 }
-.cards input, .cards text{
-  width: 95%;
+
+/* Inputs */
+.cards input,
+.cards textarea {
+  width: 100%;
   padding: 10px;
   margin-bottom: 12px;
-  border: 1px solid grey;
-  border-radius: 6px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   font-size: 14px;
 }
 
-.add{
-  flex: 1;
-  
-}
-
-.link-generator {
-  margin: 40px auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  background: white;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.link-generator h2 {
-  color: #22c55e;
-  text-align: center;
-  margin-bottom: 16px;
-}
-
-
-.input-number {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-
-.message-input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  min-height: 80px;
-  margin-bottom: 10px;
-}
-
-.btn-generate {
+.input-numero {
   width: 100%;
   padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.input-numero:focus,
+.input-contato:focus {
+  border-color: #25d366;
+}
+
+/* Botão principal */
+.btn-primary,
+.btn-generate {
+  width: 100%;
+  padding: 12px;
   background: #22c55e;
   color: white;
+  font-weight: 600;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-top: 10px;
+  transition: background 0.2s;
 }
 
+.btn-primary:hover,
 .btn-generate:hover {
   background: #16a34a;
 }
 
-
-.link-output {
-  margin-top: 15px;
-}
-
-.link-output input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #f9f9f9;
-  margin-bottom: 8px;
-}
-
-.btn-group {
-  display: flex;
-  gap: 10px;
-}
-
-.btn-group button,
-.btn-group a {
-  flex: 1;
-  padding: 8px;
-  border: none;
-  border-radius: 8px;
+/* Mensagem vazia */
+.empty {
   text-align: center;
+  color: #777;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Lista de contatos */
+.contatoLista {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.contato-item {
+  list-style: none;
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contato-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contato-info strong {
+  font-size: 16px;
+  color: #333;
+}
+
+.contato-info p {
+  font-size: 14px;
+  color: #666;
+  margin: 2px 0 0;
+}
+
+.contato-acoes {
+  display: flex;
+  gap: 6px;
+}
+
+.btn {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 14px;
 }
 
-.btn-group button {
-  background: #e5e7eb;
-}
-
-.btn-group button:hover {
-  background: #d1d5db;
-}
-
-.btn-group a {
-  background: #22c55e;
+.btn.mensagem {
+  background: #25d366;
   color: white;
-  text-decoration: none;
 }
 
-.btn-group a:hover {
-  background: #16a34a;
+.btn.editar {
+  background: #f0ad4e;
+  color: white;
 }
 
+.btn.excluir {
+  background: #d9534f;
+  color: white;
+}
 
+.btn.salvar {
+  background: #5cb85c;
+  color: white;
+}
+
+.btn.cancelar {
+  background: #6c757d;
+  color: white;
+}

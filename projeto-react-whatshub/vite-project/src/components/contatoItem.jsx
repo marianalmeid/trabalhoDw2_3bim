@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ContatoItem({ contato, onUpdate, onDelete }) {
+export default function contatoItem({ contato, onUpdate, onDelete }) {
   const [isEditing, setIsEditing] = useState(false);
   const [nome, setNome] = useState(contato.nome);
   const [numero, setNumero] = useState(contato.numero);
@@ -10,23 +10,52 @@ export default function ContatoItem({ contato, onUpdate, onDelete }) {
     setIsEditing(false);
   };
 
+  const abrirWhatsApp = () => {
+    const link = `https://wa.me/55${numero.replace(/\D/g, "")}`;
+    window.open(link, "_blank");
+  };
+
   return (
-    <li className="contactItem">
+    <li className="contato-item">
       {isEditing ? (
-        <>
-          <input value={nome} onChange={(e) => setNome(e.target.value)} />
-          <input value={numero} onChange={(e) => setNumero(e.target.value)} />
-          <button onClick={handleSave}>Salvar</button>
-          <button onClick={() => setIsEditing(false)}>Cancelar</button>
-        </>
+        <div className="edit-form">
+          <input
+            className="input-edit"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            placeholder="Nome"
+          />
+          <input
+            className="input-edit"
+            value={numero}
+            onChange={(e) => setNumero(e.target.value)}
+            placeholder="Número"
+          />
+          <button className="btn salvar" onClick={handleSave}>
+            Salvar
+          </button>
+          <button className="btn cancelar" onClick={() => setIsEditing(false)}>
+            Cancelar
+          </button>
+        </div>
       ) : (
-        <>
-          <span>{contato.nome} - {contato.numero}</span>
-          <div className="btns">
-            <button onClick={() => setIsEditing(true)}>Editar</button>
-            <button onClick={() => onDelete(contato.id)}>Excluir</button>
+        <div className="contato-box">
+          <div className="contato-info">
+            <strong>{contato.nome}</strong>
+            <p>{contato.numero}</p>
           </div>
-        </>
+          <div className="contato-acoes">
+            <button className="btn mensagem" onClick={abrirWhatsApp}>
+              Mensagem
+            </button>
+            <button className="btn editar" onClick={() => setIsEditing(true)}>
+              Editar
+            </button>
+            <button className="btn excluir" onClick={() => onDelete(contato.id)}>
+              Excluir
+            </button>
+          </div>
+        </div>
       )}
     </li>
   );

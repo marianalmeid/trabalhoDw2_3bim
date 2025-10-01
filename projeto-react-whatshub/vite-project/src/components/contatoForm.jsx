@@ -1,38 +1,36 @@
 import { useState } from "react";
+import DigNumero from "./digNumero.jsx";
 
-
-export default function ContatoForm({onAdd})
-{
+export default function contatoForm({ onAdd }) {
   const [nome, setNome] = useState("");
   const [numero, setNumero] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!nome || !numero){
-      alert("Escreva um nome e um numero");
+    if (!nome || !numero) {
+      alert("Por favor, preencha Nome e Número.");
       return;
     }
-    onAdd({nome, numero});
+    onAdd({ nome, numero });
     setNome("");
     setNumero("");
   };
 
-
   return (
-    <form className="contactForm" onSubmit={handleSubmit}>
-      <div className="add">
-        <input type="text" 
-              placeholder="Nome"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}/>
-        
-        <input type="text" 
-              placeholder="Numero"
-              value={numero}
-              onChange={(e) => setNumero(e.target.value)}/>
+    <form className="contato-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Nome"
+        value={nome}
+        onChange={(e) => setNome(e.target.value)}
+        className="input-contato"
+      />
 
-      </div>
-      <button type="submit">Add</button>
+      <DigNumero numero={numero} setNumero={setNumero} />
+
+      <button type="submit" className="btn-primary">
+        Salvar na Agenda
+      </button>
     </form>
-  )
+  );
 }
