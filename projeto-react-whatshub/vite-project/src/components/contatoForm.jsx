@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DigNumero from "./digNumero.jsx";
 
-export default function contatoForm({ onAdd }) {
+export default function ContatoForm({ onAdd }) {
   const [nome, setNome] = useState("");
   const [numero, setNumero] = useState("");
 
@@ -23,14 +23,9 @@ export default function contatoForm({ onAdd }) {
         placeholder="Nome"
         value={nome}
         onChange={(e) => setNome(e.target.value)}
-        className="input-contato"
       />
-
       <DigNumero numero={numero} setNumero={setNumero} />
-
-      <button type="submit" className="btn-primary">
-        Salvar na Agenda
-      </button>
+      <button type="submit" className="btn-green">Salvar na Agenda</button>
     </form>
   );
 }

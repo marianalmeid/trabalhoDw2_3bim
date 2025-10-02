@@ -1,78 +1,73 @@
 import { useState } from "react";
-import DigNumero from "./digNumero.jsx";
-import Mensagem from "./mensagem.jsx";
+import { FaWhatsapp, FaPhoneAlt, FaRegCopy } from "react-icons/fa";
+import { MdMessage } from "react-icons/md";
 
-
-export default function linkGerador() {
+export default function GeradorLinks() {
   const [numero, setNumero] = useState("");
-  const [mensagemTexto, setMensagemTexto] = useState("");
+  const [mensagem, setMensagem] = useState("");
   const [link, setLink] = useState("");
+  const [copiado, setCopiado] = useState(false); // Estado para feedback de cópia
 
-  const gerarLink = () => {
-    if (!numero.trim()) {
-      alert("Por favor, insira um número de WhatsApp.");
-      return;
-    }
+  const formatarNumero = (valor) => {
+    const numeros = valor.replace(/\D/g, "");
+    if (numeros.length <= 2) return `(${numeros}`;
+    if (numeros.length <= 7) return `(${numeros.slice(0, 2)}) ${numeros.slice(2)}`;
+    if (numeros.length <= 11) return `(${numeros.slice(0, 2)}) ${numeros.slice(2, 7)}-${numeros.slice(7)}`;
+    return `(${numeros.slice(0, 2)}) ${numeros.slice(2, 7)}-${numeros.slice(7, 11)}`;
+  };
 
+  const prepararLink = () => {
     const numeroLimpo = numero.replace(/\D/g, "");
-
-    if (numeroLimpo.length < 10 || numeroLimpo.length > 11) {
-      alert("Número de WhatsApp inválido. Verifique o DDD e o número.");
-      return;
-    }
-
-    const mensagemCodificada = encodeURIComponent(mensagemTexto);
-
-    const linkGerado = mensagemTexto
-      ? `https://wa.me/55${numeroLimpo}?text=${mensagemCodificada}`
-      : `https://wa.me/55${numeroLimpo}`;
-
-    setLink(linkGerado);
+    const texto = mensagem ? `?text=${encodeURIComponent(mensagem)}` : "";
+    setLink(`https://wa.me/55${numeroLimpo}${texto}`);
+    setCopiado(false); // reseta feedback
   };
 
-  const copiarLink = async () => {
-    if (!link) return;
-    try {
-      await navigator.clipboard.writeText(link);
-      alert("Link copiado para a área de transferência!");
-    } catch (err) {
-      alert("Não foi possível copiar o link.");
-      console.error(err);
-    }
-  };
-
-  const limparCampos = () => {
-    setNumero("");
-    setMensagemTexto("");
-    setLink("");
+  const copiarLink = () => {
+    navigator.clipboard.writeText(link).then(() => {
+      setCopiado(true); // mostra feedback
+      setTimeout(() => setCopiado(false), 2000); // remove feedback após 2s
+    });
   };
 
   return (
-    <div className="link-gerador">
-      <h2>Gerador de Links</h2>
+    <div className="card">
+      <h2><FaWhatsapp color="#16a34a" /> Gerador de Links</h2>
 
-      <DigNumero numero={numero} setNumero={setNumero} />
-      <Mensagem mensagem={mensagemTexto} setMensagem={setMensagemTexto} />
+      <div className="inputBox">
+        <FaPhoneAlt color="#16a34a" />
+        <input
+          type="text"
+          placeholder="(00) 00000-0000"
+          value={numero}
+          onChange={(e) => setNumero(formatarNumero(e.target.value))}
+        />
+      </div>
 
-      <button 
-        className="btn-generate" 
-        onClick={gerarLink} 
-        disabled={!numero.trim()}
-      >
-        Preparar Mensagem
+      <div className="inputBox">
+        <MdMessage color="#16a34a" />
+        <textarea
+          placeholder="Digite sua mensagem aqui..."
+          value={mensagem}
+          onChange={(e) => setMensagem(e.target.value)}
+        />
+      </div>
+
+      <button className="btn-green" onClick={prepararLink}>
+        <FaWhatsapp /> Preparar Mensagem
       </button>
 
       {link && (
-        <div className="link-output">
-          <input type="text" value={link} readOnly />
-          <div className="btn-group">
-            <button onClick={copiarLink}>Copiar</button>
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              Abrir WhatsApp
-            </a>
-            <button onClick={limparCampos}>Limpar</button>
+        <>
+          <div className="inputBox">
+            <input type="text" value={link} readOnly />
+            <FaRegCopy color="#16a34a" style={{ cursor: 'pointer' }} onClick={copiarLink} />
           </div>
-        </div>
+          {copiado && <p style={{ color: "#16a34a", fontSize: "12px", margin: "4px 0" }}>Link copiado!</p>}
+          <button className="btn-green" onClick={() => window.open(link, "_blank")}>
+            <FaWhatsapp /> Abrir WhatsApp
+          </button>
+        </>
       )}
     </div>
   );

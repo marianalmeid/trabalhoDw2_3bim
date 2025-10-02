@@ -1,5 +1,5 @@
-import LinkGerador from "./components/LinkGerador.jsx";
-import Agenda from "./components/Agenda.jsx";
+import LinkGerador from "./components/linkGerador.jsx";
+import Agenda from "./components/agenda.jsx";
 import "./styles/App.css";
 
 function App() {

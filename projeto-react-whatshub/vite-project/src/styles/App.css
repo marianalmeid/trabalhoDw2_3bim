@@ -1,181 +1,135 @@
-.container {
+/* Body centralizado horizontal e verticalmente */
+body {
   font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  padding: 40px 20px;
+  background: #f9fafb;
+  margin: 0;
+  padding: 0;
+  color: #111827;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
 }
 
-/* Título */
-.title {
-  text-align: center;
-  color: #16a34a;
-  font-size: 34px;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-/* Subtítulo */
-.subtitle {
-  text-align: center;
-  color: #000000;
-  font-size: 16px;
-  margin-bottom: 40px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.4;
-}
-
-/* Cards layout */
-.cards {
+/* Container dos cards */
+.container {
   display: flex;
-  gap: 20px;
   justify-content: center;
   align-items: flex-start;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
-.cards .item {
-  flex: 1;
-  min-width: 320px;
-  max-width: 480px;
-  border: 1px solid rgb(230, 229, 229);
-  border-radius: 12px;
-  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+/* Card */
+.card {
+  background: white;
   padding: 20px;
-  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex: 1;
+  max-width: 400px;
+  min-width: 300px;
 }
 
-/* Títulos dos cards */
-.cards div h2 {
-  font-size: 20px;
-  margin-bottom: 15px;
+/* Títulos */
+h2 {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #16a34a;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 
-/* Inputs */
-.cards input,
-.cards textarea {
-  width: 100%;
-  padding: 10px;
+/* Inputs e textarea */
+.inputBox {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 8px 12px;
   margin-bottom: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 14px;
 }
 
-.input-numero {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-}
-
-.input-numero:focus,
-.input-contato:focus {
-  border-color: #25d366;
-}
-
-/* Botão principal */
-.btn-primary,
-.btn-generate {
-  width: 100%;
-  padding: 12px;
-  background: #22c55e;
-  color: white;
-  font-weight: 600;
+.inputBox input,
+.inputBox textarea {
   border: none;
+  outline: none;
+  flex: 1;
+  background: transparent;
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+  height: 60px;
+  cursor: text;
+}
+
+/* Botões */
+.btn-green {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 10px 14px;
   border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   cursor: pointer;
+  margin-top: 8px;
   transition: background 0.2s;
 }
 
-.btn-primary:hover,
-.btn-generate:hover {
-  background: #16a34a;
+.btn-green:hover {
+  background: #15803d;
 }
 
-/* Mensagem vazia */
-.empty {
-  text-align: center;
-  color: #777;
+.btn-red {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
   font-size: 14px;
-  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.btn-red:hover {
+  background: #b91c1c;
 }
 
 /* Lista de contatos */
-.contatoLista {
-  padding: 0;
-  margin: 0;
-  list-style: none;
+.contato {
+  margin-top: 12px;
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-.contato-item {
-  list-style: none;
-  margin-bottom: 12px;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background: #fff;
+.acoes {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
 }
 
-.contato-info {
-  display: flex;
-  flex-direction: column;
+/* Títulos principais e subtítulos */
+.title {
+  text-align: center;
+  font-size: 28px;
+  color: #16a34a;
+  margin-bottom: 5px;
 }
 
-.contato-info strong {
-  font-size: 16px;
-  color: #333;
-}
-
-.contato-info p {
+.subtitle {
+  text-align: center;
+  color: #6b7280;
   font-size: 14px;
-  color: #666;
-  margin: 2px 0 0;
-}
-
-.contato-acoes {
-  display: flex;
-  gap: 6px;
-}
-
-.btn {
-  border: none;
-  padding: 6px 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.btn.mensagem {
-  background: #25d366;
-  color: white;
-}
-
-.btn.editar {
-  background: #f0ad4e;
-  color: white;
-}
-
-.btn.excluir {
-  background: #d9534f;
-  color: white;
-}
-
-.btn.salvar {
-  background: #5cb85c;
-  color: white;
-}
-
-.btn.cancelar {
-  background: #6c757d;
-  color: white;
+  margin-bottom: 20px;
 }

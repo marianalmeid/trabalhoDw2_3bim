@@ -1,4 +1,4 @@
-import ContatoItem from "./contatoItem";
+import ContatoItem from "./contatoItem.jsx";
 
 export default function ContatoList({ contatos, onUpdate, onDelete }) {
   if (contatos.length === 0) {
@@ -6,17 +6,15 @@ export default function ContatoList({ contatos, onUpdate, onDelete }) {
   }
 
   return (
-    <div>
-      <ul className="contatoList">
-        {contatos.map((contato) => (
-          <ContatoItem
-            key={contato.id}
-            contato={contato}
-            onUpdate={onUpdate}
-            onDelete={onDelete}
-          />
-        ))}
-      </ul>
-    </div>
+    <ul className="contato-list">
+      {contatos.map((contato) => (
+        <ContatoItem
+          key={contato.id}
+          contato={contato}
+          onUpdate={onUpdate}
+          onDelete={onDelete}
+        />
+      ))}
+    </ul>
   );
 }
