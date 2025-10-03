@@ -1,37 +1,42 @@
 /* Body centralizado horizontal e verticalmente */
-body {
+#root{
   font-family: Arial, sans-serif;
-  background: #f9fafb;
   margin: 0;
   padding: 0;
   color: #111827;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  background-color: white;
 }
 
 /* Container dos cards */
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+.container{
   gap: 20px;
-  flex-wrap: wrap;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  display: flex;
 }
 
 /* Card */
-.card {
+.cards{
+  display: flex;
   background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  flex: 1;
-  max-width: 400px;
-  min-width: 300px;
+  align-items: flex-start;
+  width: 90%;
+  justify-content: space-between;
 }
 
-/* Títulos */
+.item{
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 42%;
+  padding: 3%;
+}
+
+
+/* texto cards */
 h2 {
   display: flex;
   align-items: center;
@@ -42,6 +47,10 @@ h2 {
 }
 
 /* Inputs e textarea */
+
+.inputs{
+  display: flex;
+}
 .inputBox {
   display: flex;
   align-items: center;
@@ -121,6 +130,7 @@ textarea {
 
 /* Títulos principais e subtítulos */
 .title {
+  align-self: center;
   text-align: center;
   font-size: 28px;
   color: #16a34a;

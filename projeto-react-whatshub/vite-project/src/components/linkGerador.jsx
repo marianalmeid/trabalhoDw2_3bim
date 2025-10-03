@@ -34,7 +34,9 @@ export default function GeradorLinks() {
     <div className="card">
       <h2><FaWhatsapp color="#16a34a" /> Gerador de Links</h2>
 
+      <p>Número de WhatsApp</p>
       <div className="inputBox">
+        
         <FaPhoneAlt color="#16a34a" />
         <input
           type="text"
@@ -43,7 +45,7 @@ export default function GeradorLinks() {
           onChange={(e) => setNumero(formatarNumero(e.target.value))}
         />
       </div>
-
+      <p>Mensagem (opicional)</p>
       <div className="inputBox">
         <MdMessage color="#16a34a" />
         <textarea

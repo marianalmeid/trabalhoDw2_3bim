@@ -55,29 +55,37 @@ export default function Agenda() {
     }
   };
 
+  const abrirWhatsApp = (numero) => {
+    const link = `https://wa.me/55${numero.replace(/\D/g, "")}`;
+    window.open(link, "_blank");
+  };
+
   return (
     <div className="card">
       <h2><FaUserAlt color="#16a34a" /> Agenda de Contatos</h2>
 
-      <div className="inputBox">
-        <FaUserAlt color="#16a34a" />
-        <input
-          type="text"
-          placeholder="Nome do contato"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-        />
-      </div>
+      <div className="input">
+        <div className="inputBox">
+          <FaUserAlt color="#16a34a" />
+          <input
+            type="text"
+            placeholder="Nome do contato"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+          />
+        </div>
 
-      <div className="inputBox">
-        <FaPhoneAlt color="#16a34a" />
-        <input
-          type="text"
-          placeholder="Número"
-          value={numero}
-          onChange={(e) => setNumero(formatarNumero(e.target.value))}
-        />
+        <div className="inputBox">
+          <FaPhoneAlt color="#16a34a" />
+          <input
+            type="text"
+            placeholder="Número"
+            value={numero}
+            onChange={(e) => setNumero(formatarNumero(e.target.value))}
+          />
+        </div>
       </div>
+      
 
       <button className="btn-green" onClick={salvarContato}>
         {editId ? <MdCheck /> : <MdSave />} {editId ? "Atualizar" : "Salvar na Agenda"}
@@ -89,7 +97,7 @@ export default function Agenda() {
           <p>{c.nome}</p>
           <span>{exibirNumeroFormatado(c.numero)}</span>
           <div className="acoes">
-            <button className="btn-green"><MdMessage /> Mensagem</button>
+            <button className="btn-green" onClick={() => abrirWhatsApp(c.numero)}><MdMessage /> Mensagem</button>
             <button className="btn-green" onClick={() => editarContato(c)}><MdEdit /> Editar</button>
             <button className="btn-red" onClick={() => excluirContato(c.id)}><MdDelete /> Excluir</button>
           </div>
