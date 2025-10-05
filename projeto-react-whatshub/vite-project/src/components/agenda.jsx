@@ -1,12 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaUserAlt, FaPhoneAlt } from "react-icons/fa";
 import { MdSave, MdEdit, MdDelete, MdMessage, MdCheck } from "react-icons/md";
+import { supabase } from "../supabaseClient";
 
 export default function Agenda() {
   const [contatos, setContatos] = useState([]);
   const [nome, setNome] = useState("");
   const [numero, setNumero] = useState("");
   const [editId, setEditId] = useState(null); // ID do contato que está sendo editado
+
+//carrega os contatos ao iniciar
+  useEffect(() => {
+    buscarContatos();
+  }, []);
+
+
+  const buscarContatos = async () => {
+    const { data, error } = await supabase
+      .from("contatos")
+      .select("*")
+      .order("id", { ascending: true });
+    if (error) console.error("Erro ao carregar:", error);
+    else setContatos(data);
+  };
 
   // Formata número para exibição (00) 00000-0000
   const formatarNumero = (valor) => {
