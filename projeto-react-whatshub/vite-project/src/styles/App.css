@@ -46,33 +46,57 @@ h2 {
   margin-bottom: 15px;
 }
 
+.agenda{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
 /* Inputs e textarea */
 
-.inputs{
+.input{
   display: flex;
+  justify-content: space-around;
+  padding: none;
+  width: 100%;
 }
 .inputBox {
   display: flex;
   align-items: center;
   border: 1px solid #e5e7eb;
   background: #f9fafb;
+  height: 2rem;
+  width: 45%;
   border-radius: 8px;
   padding: 8px 12px;
   margin-bottom: 12px;
 }
+.inputlink input,
+.inputlink textarea{
+  display: flex;
+  align-items: center;
+  border: 1px solid #bbc0c9;
+  background: #afd4f8;
+  width: 100%;
+  height: 2rem;
+  border-radius: 8px;
+  margin-bottom: 12px;
+
+}
 
 .inputBox input,
-.inputBox textarea {
+.inputBox textarea{
   border: none;
   outline: none;
   flex: 1;
   background: transparent;
   font-size: 14px;
+  padding: none;
 }
+
 
 textarea {
   resize: none;
-  height: 60px;
   cursor: text;
 }
 
@@ -89,7 +113,10 @@ textarea {
   gap: 6px;
   cursor: pointer;
   margin-top: 8px;
-  transition: background 0.2s;
+  width: 100%;
+  height: 3rem;
+ 
+  transition: 0.2s;
 }
 
 .btn-green:hover {
@@ -108,7 +135,7 @@ textarea {
   gap: 6px;
   cursor: pointer;
   margin-top: 8px;
-  transition: background 0.2s;
+  transition: 0.2s;
 }
 
 .btn-red:hover {

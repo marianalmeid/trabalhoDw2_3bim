@@ -35,7 +35,7 @@ export default function GeradorLinks() {
       <h2><FaWhatsapp color="#16a34a" /> Gerador de Links</h2>
 
       <p>Número de WhatsApp</p>
-      <div className="inputBox">
+      <div className="inputlink">
         
         <FaPhoneAlt color="#16a34a" />
         <input
@@ -46,7 +46,7 @@ export default function GeradorLinks() {
         />
       </div>
       <p>Mensagem (opicional)</p>
-      <div className="inputBox">
+      <div className="inputlink">
         <MdMessage color="#16a34a" />
         <textarea
           placeholder="Digite sua mensagem aqui..."
@@ -61,7 +61,7 @@ export default function GeradorLinks() {
 
       {link && (
         <>
-          <div className="inputBox">
+          <div className="inputlink">
             <input type="text" value={link} readOnly />
             <FaRegCopy color="#16a34a" style={{ cursor: 'pointer' }} onClick={copiarLink} />
           </div>

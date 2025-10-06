@@ -77,7 +77,7 @@ export default function Agenda() {
   };
 
   return (
-    <div className="card">
+    <div className="agenda">
       <h2><FaUserAlt color="#16a34a" /> Agenda de Contatos</h2>
 
       <div className="input">
