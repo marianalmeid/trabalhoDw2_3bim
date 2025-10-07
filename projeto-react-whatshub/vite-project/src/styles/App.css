@@ -117,10 +117,35 @@ textarea {
 }
 .gerador{
   margin-top: 2%;
-  border: 1px solid #111827;
+  border: 1px solid #e0e2e4;
+  background-color: #f9fafb;
   width: 95%;
   padding: 3%;
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.link{
+  display: flex;
+  height: 2rem;
+  align-items: center;
+  justify-content: space-around;
+}
+.link input{
+  border: 1px solid #e0e2e4;
+  border-radius: 8px;
+  width: 85%;
+  font-size: 14px;
+  height: 100%;
+}
+.link button{
+  display: flex;
+  
+  border: 1px solid #e0e2e4;
+  border-radius: 8px;
+  width: 10%;
+  margin: none;
+  height: 100%;
 }
 /* Botões */
 .btn-green {

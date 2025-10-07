@@ -61,7 +61,7 @@ export default function GeradorLinks() {
           <p>Link gerado:</p>
             <div className="link">
               <input type="text" value={link} readOnly />
-              <FaRegCopy color="#16a34a" style={{ cursor: 'pointer' }} onClick={copiarLink} />
+              <button><FaRegCopy color="#7f8481ff" style={{ cursor: 'pointer' }} onClick={copiarLink} /></button>
             </div>
             {copiado && <p style={{ color: "#16a34a", fontSize: "12px", margin: "4px 0" }}>Link copiado!</p>}
             <button className="btn-green" onClick={() => window.open(link, "_blank")}>
