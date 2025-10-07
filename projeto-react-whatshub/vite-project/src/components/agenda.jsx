@@ -82,7 +82,6 @@ export default function Agenda() {
 
       <div className="input">
         <div className="inputBox">
-          <FaUserAlt color="#16a34a" />
           <input
             type="text"
             placeholder="Nome do contato"
@@ -92,7 +91,6 @@ export default function Agenda() {
         </div>
 
         <div className="inputBox">
-          <FaPhoneAlt color="#16a34a" />
           <input
             type="text"
             placeholder="Número"

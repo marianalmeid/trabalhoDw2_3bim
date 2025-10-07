@@ -36,7 +36,6 @@ export default function GeradorLinks() {
 
       <p>Número de WhatsApp</p>
       <div className="inputlink">
-        
         <FaPhoneAlt color="#16a34a" />
         <input
           type="text"
@@ -46,8 +45,7 @@ export default function GeradorLinks() {
         />
       </div>
       <p>Mensagem (opicional)</p>
-      <div className="inputlink">
-        <MdMessage color="#16a34a" />
+      <div className="mensage">
         <textarea
           placeholder="Digite sua mensagem aqui..."
           value={mensagem}
@@ -59,18 +57,19 @@ export default function GeradorLinks() {
         <FaWhatsapp /> Preparar Mensagem
       </button>
 
-      {link && (
-        <>
-          <div className="inputlink">
-            <input type="text" value={link} readOnly />
-            <FaRegCopy color="#16a34a" style={{ cursor: 'pointer' }} onClick={copiarLink} />
-          </div>
-          {copiado && <p style={{ color: "#16a34a", fontSize: "12px", margin: "4px 0" }}>Link copiado!</p>}
-          <button className="btn-green" onClick={() => window.open(link, "_blank")}>
-            <FaWhatsapp /> Abrir WhatsApp
-          </button>
-        </>
-      )}
+      <div className="gerador">
+          <p>Link gerado:</p>
+            <div className="link">
+              <input type="text" value={link} readOnly />
+              <FaRegCopy color="#16a34a" style={{ cursor: 'pointer' }} onClick={copiarLink} />
+            </div>
+            {copiado && <p style={{ color: "#16a34a", fontSize: "12px", margin: "4px 0" }}>Link copiado!</p>}
+            <button className="btn-green" onClick={() => window.open(link, "_blank")}>
+              <FaWhatsapp /> Abrir WhatsApp
+            </button>
+
+      </div>
+        
     </div>
   );
 }
