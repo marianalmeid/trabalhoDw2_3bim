@@ -39,21 +39,38 @@ export default function Agenda() {
     return formatarNumero(num);
   };
 
-  const salvarContato = () => {
+  const salvarContato = async () => {
     if (!nome || !numero) return;
     const numeroLimpo = numero.replace(/\D/g, "");
 
-    if (editId) {
+    //if (editId) {
       // Atualiza contato existente
-      setContatos(contatos.map(c => c.id === editId ? { ...c, nome, numero: numeroLimpo } : c));
-      setEditId(null);
-    } else {
+      //setContatos(contatos.map(c => c.id === editId ? { ...c, nome, numero: numeroLimpo } : c));
+      //setEditId(null);
+    //} else {
       // Adiciona novo contato
-      setContatos([...contatos, { id: Date.now(), nome, numero: numeroLimpo }]);
+      //setContatos([...contatos, { id: Date.now(), nome, numero: numeroLimpo }]);
+    //}
+
+    if (editId) {
+      // Atualizar contato
+      const { error } = await supabase
+        .from("contatos")
+        .update({ nome, numero: numeroLimpo })
+        .eq("id", editId);
+      if (error) console.error("Erro ao atualizar:", error);
+    } else {
+      // Inserir novo contato
+      const { error } = await supabase
+        .from("contatos")
+        .insert([{ nome, numero: numeroLimpo }]);
+      if (error) console.error("Erro ao inserir:", error);
     }
 
     setNome("");
     setNumero("");
+    setEditId(null);
+    buscarContatos(); // recarrega lista
   };
 
   const editarContato = (c) => {
@@ -62,13 +79,19 @@ export default function Agenda() {
     setEditId(c.id);
   };
 
-  const excluirContato = (id) => {
-    setContatos(contatos.filter(c => c.id !== id));
-    if (editId === id) { // Se estava editando esse contato, limpa o form
-      setNome("");
-      setNumero("");
-      setEditId(null);
-    }
+  //const excluirContato = (id) => {
+   // setContatos(contatos.filter(c => c.id !== id));
+    //if (editId === id) { // Se estava editando esse contato, limpa o form
+      //setNome("");
+      //setNumero("");
+      //setEditId(null);
+   // }
+ // };
+ 
+  const excluirContato = async (id) => {
+    const { error } = await supabase.from("contatos").delete().eq("id", id);
+    if (error) console.error("Erro ao excluir:", error);
+    else buscarContatos();
   };
 
   const abrirWhatsApp = (numero) => {
