@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaUserAlt, FaPhoneAlt } from "react-icons/fa";
-import { MdSave, MdEdit, MdDelete, MdMessage, MdCheck } from "react-icons/md";
+import { MdDelete, MdCheck } from "react-icons/md";
 import { supabase } from "../supabaseClient";
 
 export default function Agenda() {
@@ -125,18 +125,20 @@ export default function Agenda() {
       
 
       <button className="btn-green" onClick={salvarContato}>
-        {editId ? <MdCheck /> : <MdSave />} {editId ? "Atualizar" : "Salvar na Agenda"}
+        {editId ? <MdCheck /> : <FaUserAlt color="black" />} {editId ? "Atualizar" : "Salvar na Agenda"}
       </button>
 
       <h4>Seus Contatos ({contatos.length})</h4>
       {contatos.map((c) => (
         <div key={c.id} className="contato">
-          <p>{c.nome}</p>
-          <span>{exibirNumeroFormatado(c.numero)}</span>
+          <div className="info">
+            <p>{c.nome}</p>
+            <span>{exibirNumeroFormatado(c.numero)}</span>
+          </div>
           <div className="acoes">
-            <button className="btn-green" onClick={() => abrirWhatsApp(c.numero)}><MdMessage /> Mensagem</button>
-            <button className="btn-green" onClick={() => editarContato(c)}><MdEdit /> Editar</button>
-            <button className="btn-red" onClick={() => excluirContato(c.id)}><MdDelete /> Excluir</button>
+            <button className="btn-green" onClick={() => abrirWhatsApp(c.numero)}>Mensagem</button>
+            <button className="btn-green" onClick={() => editarContato(c)}>Editar</button>
+            <button className="btn-red" onClick={() => excluirContato(c.id)}><MdDelete /></button>
           </div>
         </div>
       ))}

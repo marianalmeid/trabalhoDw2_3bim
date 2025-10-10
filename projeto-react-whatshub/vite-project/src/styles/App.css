@@ -171,6 +171,63 @@ textarea {
   background: #15803d;
 }
 
+/* Botões da lista de contatos (modo transparente) */
+.contato .acoes button {
+  background-color: transparent;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* Efeito hover */
+.contato .acoes button:hover {
+  background-color: #f3f4f6;
+}
+
+/* Ícone vermelho só no botão de excluir */
+.contato .acoes .btn-red {
+  color: #dc2626;
+  border-color: #f3f4f6;
+}
+
+.contato .acoes .btn-red:hover {
+  background-color: #fee2e2;
+}
+
+/* --- torna o botão "Salvar na Agenda" transparente --- */
+.agenda .btn-green {
+  background-color: transparent;   /* sem fundo verde */
+  color: #111827;                  /* texto escuro */
+  border: 1px solid #e5e7eb;       /* borda leve */
+  width: 100%;                     /* ocupa toda a largura do card */
+  height: 2.8rem;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* faz só o ícone ficar verde (se o ícone não receber cor por prop) */
+.agenda .btn-green svg {
+  color: #16a34a;
+}
+
+/* hover leve igual à primeira imagem */
+.agenda .btn-green:hover {
+  background-color: #f3f4f6;
+}
+
+
 .btn-red {
   background: #dc2626;
   color: white;
@@ -192,13 +249,23 @@ textarea {
 
 /* Lista de contatos */
 .contato {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   margin-top: 12px;
   padding: 10px;
   border-bottom: 1px solid #e5e7eb;
 }
 
+.agenda .contato .info {
+  display: flex;
+  flex-direction: column;
+  min-width: 160px; /* define uma largura mínima para o nome/número */
+}
+
 .acoes {
   display: flex;
+  align-items: center;
   gap: 8px;
   margin-top: 6px;
 }

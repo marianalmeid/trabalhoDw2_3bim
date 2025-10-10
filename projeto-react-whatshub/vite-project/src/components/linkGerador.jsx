@@ -36,7 +36,7 @@ export default function GeradorLinks() {
 
       <p>Número de WhatsApp</p>
       <div className="inputlink">
-        <FaPhoneAlt color="#16a34a" />
+        <FaPhoneAlt color="black" />
         <input
           type="text"
           placeholder="(00) 00000-0000"
@@ -65,7 +65,7 @@ export default function GeradorLinks() {
             </div>
             {copiado && <p style={{ color: "#16a34a", fontSize: "12px", margin: "4px 0" }}>Link copiado!</p>}
             <button className="btn-green" onClick={() => window.open(link, "_blank")}>
-              <FaWhatsapp /> Abrir WhatsApp
+              <FaWhatsapp/> Abrir WhatsApp
             </button>
 
       </div>
