@@ -129,19 +129,24 @@ export default function Agenda() {
       </button>
 
       <h4>Seus Contatos ({contatos.length})</h4>
-      {contatos.map((c) => (
-        <div key={c.id} className="contato">
-          <div className="info">
-            <p>{c.nome}</p>
-            <span>{exibirNumeroFormatado(c.numero)}</span>
-          </div>
-          <div className="acoes">
-            <button className="btn-green" onClick={() => abrirWhatsApp(c.numero)}>Mensagem</button>
-            <button className="btn-green" onClick={() => editarContato(c)}>Editar</button>
-            <button className="btn-red" onClick={() => excluirContato(c.id)}><MdDelete /></button>
-          </div>
-        </div>
-      ))}
+      <div className="lista_Contatos">
+          {contatos.map((c) => (
+            <div key={c.id} className="contato">
+                <div className="info">
+                  <p>{c.nome}</p>
+                  <span>{exibirNumeroFormatado(c.numero)}</span>
+                  {/*exemplo de um lugar que o ddd poderia ficar*/}
+                  <p className="ddd">lugar do ddd</p>
+                </div>
+                <div className="acoes">
+                      <button className="btn-green" onClick={() => abrirWhatsApp(c.numero)}>Mensagem</button>
+                      <button className="btn-green" onClick={() => editarContato(c)}>Editar</button>
+                      <button className="btn-red" onClick={() => excluirContato(c.id)}><MdDelete /></button>
+                </div>
+            </div>
+                ))}
+      </div>
+      
     </div>
   );
 }
