@@ -25,6 +25,18 @@ export default function GeradorLinks() {
     setLink(`https://wa.me/55${numeroLimpo}${texto}`);
   };
 
+  // Copiar o link para a área de transferência
+  const copiarLink = () => {
+    if (!link) return alert("Gere o link primeiro!");
+    navigator.clipboard.writeText(link);
+  };
+
+  // Abrir o link no WhatsApp
+  const abrirWhatsapp = () => {
+    if (!link) return alert("Gere o link primeiro!");
+    window.open(link, "_blank");
+  };
+
   return (
     <div className="card">
       <h2><FaWhatsapp color="#16a34a" /> Gerador de Links</h2>
@@ -56,15 +68,15 @@ export default function GeradorLinks() {
         <p>Link Gerado: </p>
         <div className="inputlink">
             <input type="text" value={link} readOnly />
-            <button className="copy">
+            <button className="copy" onClick={copiarLink}>
               <FaRegCopy color="#000000ff" />
             </button>
           </div>
-          <button className="btn-green">
+          <button className="btn-green" onClick={abrirWhatsapp}>
             <FaWhatsapp /> Abrir WhatsApp
           </button>
       </div>
           
-      </div>
+    </div>
   );
 }

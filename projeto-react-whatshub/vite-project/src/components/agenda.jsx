@@ -129,7 +129,7 @@ export default function Agenda() {
       </button>
 
       <h4>Seus Contatos ({contatos.length})</h4>
-      <div className="lista_Contatos">
+      <div className="listaContatos">
           {contatos.map((c) => (
             <div key={c.id} className="contato">
                 <div className="info">
