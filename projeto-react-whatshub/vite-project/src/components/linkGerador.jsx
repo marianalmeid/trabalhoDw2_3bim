@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FaWhatsapp, FaPhoneAlt, FaRegCopy } from "react-icons/fa";
-import { MdMessage } from "react-icons/md";
 
 export default function GeradorLinks() {
   const [numero, setNumero] = useState("");
@@ -30,7 +29,8 @@ export default function GeradorLinks() {
     <div className="card">
       <h2><FaWhatsapp color="#16a34a" /> Gerador de Links</h2>
 
-      <div className="inputBox">
+      <div className="inputNum">
+
         <FaPhoneAlt color="#6d706eff" />
         <input
           type="text"
@@ -40,7 +40,7 @@ export default function GeradorLinks() {
         />
       </div>
 
-      <div className="inputBox">
+      <div className="mensage">
         <textarea
           placeholder="Digite sua mensagem aqui..."
           value={mensagem}
@@ -52,17 +52,19 @@ export default function GeradorLinks() {
         <FaWhatsapp /> Preparar Mensagem
       </button>
 
-      {link && (
-        <>
-          <div className="inputBox">
+      <div className="gerador">
+        <p>Link Gerado: </p>
+        <div className="inputlink">
             <input type="text" value={link} readOnly />
-            <FaRegCopy color="#16a34a" />
+            <button className="copy">
+              <FaRegCopy color="#000000ff" />
+            </button>
           </div>
           <button className="btn-green">
             <FaWhatsapp /> Abrir WhatsApp
           </button>
-        </>
-      )}
-    </div>
+      </div>
+          
+      </div>
   );
 }
