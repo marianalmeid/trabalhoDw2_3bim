@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaUserAlt, FaPhoneAlt } from "react-icons/fa";
 import { MdDelete, MdCheck } from "react-icons/md";
+import DDDInfo from "./ddd";
 import { supabase } from "../supabaseClient";
 
 export default function Agenda() {
@@ -43,14 +44,6 @@ export default function Agenda() {
     if (!nome || !numero) return;
     const numeroLimpo = numero.replace(/\D/g, "");
 
-    //if (editId) {
-      // Atualiza contato existente
-      //setContatos(contatos.map(c => c.id === editId ? { ...c, nome, numero: numeroLimpo } : c));
-      //setEditId(null);
-    //} else {
-      // Adiciona novo contato
-      //setContatos([...contatos, { id: Date.now(), nome, numero: numeroLimpo }]);
-    //}
 
     if (editId) {
       // Atualizar contato
@@ -79,15 +72,7 @@ export default function Agenda() {
     setEditId(c.id);
   };
 
-  //const excluirContato = (id) => {
-   // setContatos(contatos.filter(c => c.id !== id));
-    //if (editId === id) { // Se estava editando esse contato, limpa o form
-      //setNome("");
-      //setNumero("");
-      //setEditId(null);
-   // }
- // };
- 
+  
   const excluirContato = async (id) => {
     const { error } = await supabase.from("contatos").delete().eq("id", id);
     if (error) console.error("Erro ao excluir:", error);
@@ -133,10 +118,12 @@ export default function Agenda() {
           {contatos.map((c) => (
             <div key={c.id} className="contato">
                 <div className="info">
-                  <p>{c.nome}</p>
-                  <span>{exibirNumeroFormatado(c.numero)}</span>
-                  {/*exemplo de um lugar que o ddd poderia ficar*/}
-                  <p className="ddd">lugar do ddd</p>
+                  <p className="nome">{c.nome}</p>
+                  <div className="dados">
+                    <span>{exibirNumeroFormatado(c.numero)}</span>
+                    <DDDInfo numero={c.numero} />
+                  </div>
+                  
                 </div>
                 <div className="acoes">
                       <button className="btn-green" onClick={() => abrirWhatsApp(c.numero)}>Mensagem</button>
