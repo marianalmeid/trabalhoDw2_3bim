@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaUserAlt, FaPhoneAlt } from "react-icons/fa";
+import { FaUserAlt} from "react-icons/fa";
 import { MdDelete, MdCheck } from "react-icons/md";
 import DDDInfo from "./ddd";
 import { supabase } from "../supabaseClient";
