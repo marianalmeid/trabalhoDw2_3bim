@@ -180,6 +180,15 @@ textarea {
   border-radius: 13px;
   font-size: 15px;
 
+  transition: 0.2s;
+
+}
+
+.inputlink .copy:hover{
+  background-color: rgb(215, 215, 215);
+  border: 1px solid gainsboro;
+  border-radius: 13px;
+  font-size: 15px;
 }
 /* Botões */
 .btn-green {

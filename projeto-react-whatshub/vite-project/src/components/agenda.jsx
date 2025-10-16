@@ -41,7 +41,9 @@ export default function Agenda() {
   };
 
   const salvarContato = async () => {
-    if (!nome || !numero) return;
+    if (!numero || !nome) {
+    alert("Por favor, digite um número e um nome!");
+    return;}
     const numeroLimpo = numero.replace(/\D/g, "");
 
 

@@ -20,6 +20,12 @@ export default function GeradorLinks() {
   };
 
   const prepararLink = () => {
+    
+    // Valida se o número está vazio
+    if (!numero) {
+    alert("Por favor, digite um número!");
+    return;}
+
     const numeroLimpo = numero.replace(/\D/g, ""); // só números
     const texto = mensagem ? `?text=${encodeURIComponent(mensagem)}` : "";
     setLink(`https://wa.me/55${numeroLimpo}${texto}`);
